@@ -4,6 +4,10 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 
+## ----eval = FALSE-------------------------------------------------------------
+#  install.packages("forstringr")
+#  
+
 ## ----example1-----------------------------------------------------------------
 library(forstringr)
 
@@ -40,13 +44,25 @@ first_name <- str_split_extract(top_10_richest_nig, " ", 1)
 first_name
 
 ## ----example5b----------------------------------------------------------------
-first_name <- str_extract_part(top_10_richest_nig, before = TRUE, pattern = " ")
+first_name <- str_extract_part(top_10_richest_nig,  pattern = " ", before = TRUE)
 
 first_name
 
 revenue <- c("$159", "$587", "$891", "$207", "$793")
 
-str_extract_part(revenue, before = FALSE, pattern = "$")
+str_extract_part(revenue, pattern = "$", before = FALSE)
+
+## ----example 6, warning=FALSE, fig.width= 5.6, fig.height= 5------------------
+library(ggplot2)
+
+histogram_plot <- function(df, var, binwidth) {
+ df |>
+   ggplot(aes(x = {{ var }})) +
+   geom_histogram(binwidth = binwidth) +
+   labs(title = str_englue("A histogram of {{var}} with binwidth {binwidth}"))
+}
+
+iris |> histogram_plot(Sepal.Length, binwidth = 0.1)
 
 ## ----example 6a---------------------------------------------------------------
 # A dataframe with whitespaces

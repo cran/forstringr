@@ -6,23 +6,34 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/gbganalyst/forstringr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/gbganalyst/forstringr/actions/workflows/R-CMD-check.yaml)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/forstringr)](https://cran.r-project.org/package=forstringr)
+[![metacran
+downloads](https://cranlogs.r-pkg.org/badges/grand-total/forstringr)](https://cran.r-project.org/package=forstringr)
 <!-- badges: end -->
+
+## Overview
 
 The string (or character) data type typically requires more manipulation
 to be helpful for data analysts. Thus, there is a need for a robust
 package that is up to the task. **forstringr** is a new package built on
-top of stringr to execute various string manipulations in R programming.
-The main aim of forstringr is to simplify string manipulation for R
-beginners. This package combines its power with the adaptability of
-other manipulation tools such as tidyr and dplyr. Like in the stringr
-package, most functions in `forstringr` begin with `str_`. For a quick
-video tutorial, I gave a talk at Africa R users meetup, which you can
-find [here](https://r4africa.org/event/1sept2022).
+top of ‘stringr’ to execute various string manipulations in R
+programming. The main aim of ‘forstringr’ is to simplify string
+manipulation for R beginners. This package combines its power with the
+adaptability of other manipulation tools such as tidyr and dplyr. Like
+in the stringr package, most functions in `forstringr` begin with
+`str_`. For a quick video tutorial, I gave a talk at Africa R users
+meetup, which you can find [here](https://r4africa.org/event/1sept2022).
 
 ## Installation
 
-You can install the development version of `forstringr` from
-[GitHub](https://github.com/) with
+You can install `forstringr` package from
+[CRAN](https://cran.r-project.org/) with:
+
+``` r
+install.packages("forstringr")
+```
+
+or the development version from [GitHub](https://github.com/) with
 
 ``` r
 if(!require("devtools")){
@@ -31,6 +42,28 @@ if(!require("devtools")){
 
 devtools::install_github("gbganalyst/forstringr")
 ```
+
+## Usage
+
+This section provides a concise overview of the different functions
+available in the `forstringr` package. These functions serve various
+purposes and are designed to aid in string manipulation tasks.
+
+- [`length_omit_na()`](#length_omit_na)
+
+- [`str_left()`](#str_left)
+
+- [`str_right()`](#str_right)
+
+- [`str_mid()`](#str_mid)
+
+- [`str_split_extract()`](#str_split_extract)
+
+- [`str_extract_part()`](#str_extract_part)
+
+- [`str_englue()`](#str_englue)
+
+- [`str_rm_whitespace_df()`](#str-rm-whitespace-df)
 
 ## `length_omit_na()`
 
@@ -118,7 +151,7 @@ first_name
 Extract strings before or after a given pattern. For example:
 
 ``` r
-first_name <- str_extract_part(top_10_richest_nig, before = TRUE, pattern = " ")
+first_name <- str_extract_part(top_10_richest_nig,  pattern = " ", before = TRUE)
 
 first_name
 #>  [1] "Aliko"      "Mike"       "Femi"       "Arthur"     "Abdulsamad"
@@ -126,9 +159,35 @@ first_name
 
 revenue <- c("$159", "$587", "$891", "$207", "$793")
 
-str_extract_part(revenue, before = FALSE, pattern = "$")
+str_extract_part(revenue, pattern = "$", before = FALSE)
 #> [1] "159" "587" "891" "207" "793"
 ```
+
+## `str_englue()`
+
+You can dynamically label ggplot2 plots with the glue operators `[` or
+`{{}}` using `str_englue()`. For example, any value wrapped in `{ }`
+will be inserted into the string and you automatically inserts a given
+variable name using `{{ }}`.
+
+It is important to note that `str_englue()` must be used inside a
+function. `str_englue("{{ var }}")` defuses the argument `var` and
+transforms it to a string using the default name operation.
+
+``` r
+library(ggplot2)
+
+histogram_plot <- function(df, var, binwidth) {
+ df |>
+   ggplot(aes(x = {{ var }})) +
+   geom_histogram(binwidth = binwidth) +
+   labs(title = str_englue("A histogram of {{var}} with binwidth {binwidth}"))
+}
+
+iris |> histogram_plot(Sepal.Length, binwidth = 0.1)
+```
+
+<img src="man/figures/README-example_6-1.png" width="100%" />
 
 ## `str_rm_whitespace_df()`
 
