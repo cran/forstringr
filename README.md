@@ -51,6 +51,8 @@ purposes and are designed to aid in string manipulation tasks.
 
 - [`length_omit_na()`](#length_omit_na)
 
+- [`str_title_case()`](#str_title_case)
+
 - [`str_left()`](#str_left)
 
 - [`str_right()`](#str_right)
@@ -63,7 +65,7 @@ purposes and are designed to aid in string manipulation tasks.
 
 - [`str_englue()`](#str_englue)
 
-- [`str_rm_whitespace_df()`](#str-rm-whitespace-df)
+- [`str_rm_whitespace_df()`](#str_rm_whitespace_df)
 
 ## `length_omit_na()`
 
@@ -71,14 +73,41 @@ purposes and are designed to aid in string manipulation tasks.
 
 ``` r
 library(forstringr)
+#> Loading required package: stringr
 
 ethnicity <- c("Hausa", NA, "Yoruba", "Ijaw", "Igbo", NA, "Ibibio", "Tiv", "Fulani", "Kanuri", "Others")
 
-length(ethnicity) # Count all the observations, including the NAs.
+# count all the observations, including NAs.
+
+length(ethnicity) 
 #> [1] 11
+
+
+# count all the observations, without NAs.
 
 length_omit_na(ethnicity)
 #> [1] 9
+```
+
+## `str_title_case()`
+
+`str_title_case()` converts string to title case, capitalizing only the
+first letter of each word while ignoring articles, prepositions, and
+conjunctions.
+
+Please note that `str_title_case()` is different from
+`stringr::str_to_title()` which converts to title case, where only the
+first letter of each word is capitalized.
+
+``` r
+
+words <- "the quick brown fox jumps over a lazy dog"
+
+str_title_case(words) # from forstringr package
+#> [1] "The Quick Brown Fox Jumps over a Lazy Dog"
+
+str_to_title(words) # from stringr package
+#> [1] "The Quick Brown Fox Jumps Over A Lazy Dog"
 ```
 
 ## `str_left()`
@@ -165,7 +194,7 @@ str_extract_part(revenue, pattern = "$", before = FALSE)
 
 ## `str_englue()`
 
-You can dynamically label ggplot2 plots with the glue operators `[` or
+You can dynamically label ggplot2 plots with the glue operators `{}` or
 `{{}}` using `str_englue()`. For example, any value wrapped in `{ }`
 will be inserted into the string and you automatically inserts a given
 variable name using `{{ }}`.
@@ -178,13 +207,14 @@ transforms it to a string using the default name operation.
 library(ggplot2)
 
 histogram_plot <- function(df, var, binwidth) {
- df |>
+ df %>%  
    ggplot(aes(x = {{ var }})) +
    geom_histogram(binwidth = binwidth) +
    labs(title = str_englue("A histogram of {{var}} with binwidth {binwidth}"))
 }
 
-iris |> histogram_plot(Sepal.Length, binwidth = 0.1)
+iris %>% 
+  histogram_plot(Sepal.Length, binwidth = 0.1)
 ```
 
 <img src="man/figures/README-example_6-1.png" width="100%" />
@@ -197,7 +227,7 @@ Therefore, the function `str_rm_whitespace_df()` eliminates your data
 frame unnecessary leading, trailing, or other whitespaces.
 
 ``` r
-# A dataframe with whitespaces
+# a dataframe with whitespaces
 
 richest_in_nigeria
 #> # A tibble: 10 × 5
@@ -216,7 +246,7 @@ richest_in_nigeria
 ```
 
 ``` r
-# A dataframe with no whitespaces
+# a dataframe with no whitespaces
 
 str_rm_whitespace_df(richest_in_nigeria)
 #> # A tibble: 10 × 5

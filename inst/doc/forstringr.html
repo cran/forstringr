@@ -351,63 +351,64 @@ manipulation packages such as ‘dplyr’ and ‘tidyr’. Just like in the
 <div id="installation" class="section level2">
 <h2>Installation</h2>
 <p>You can install <code>forstringr</code> package from <a href="https://cran.r-project.org/">CRAN</a> with:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;forstringr&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;forstringr&quot;</span>)</span></code></pre></div>
 <p>or the development version from <a href="https://github.com/">GitHub</a> with:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;devtools&quot;</span>)){</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;gbganalyst/forstringr&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;devtools&quot;</span>)){</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a> <span class="fu">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>}</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;gbganalyst/forstringr&quot;</span>)</span></code></pre></div>
 </div>
 <div id="length_omit_na" class="section level2">
 <h2><code>length_omit_na()</code></h2>
 <p><code>length_omitna()</code> counts only non-missing elements of a
 vector.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forstringr)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>ethnicity <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Hausa&quot;</span>, <span class="cn">NA</span>, <span class="st">&quot;Yoruba&quot;</span>, <span class="st">&quot;Ijaw&quot;</span>, <span class="st">&quot;Igbo&quot;</span>, <span class="cn">NA</span>, <span class="st">&quot;Ibibio&quot;</span>, <span class="st">&quot;Tiv&quot;</span>, <span class="st">&quot;Fulani&quot;</span>, <span class="st">&quot;Kanuri&quot;</span>, <span class="st">&quot;Others&quot;</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(ethnicity) <span class="co"># Count all the observations, including the NAs.</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 11</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">length_omit_na</span>(ethnicity)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 9</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">library</span>(forstringr)</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="co">#&gt; Loading required package: stringr</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>ethnicity <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Hausa&quot;</span>, <span class="cn">NA</span>, <span class="st">&quot;Yoruba&quot;</span>, <span class="st">&quot;Ijaw&quot;</span>, <span class="st">&quot;Igbo&quot;</span>, <span class="cn">NA</span>, <span class="st">&quot;Ibibio&quot;</span>, <span class="st">&quot;Tiv&quot;</span>, <span class="st">&quot;Fulani&quot;</span>, <span class="st">&quot;Kanuri&quot;</span>, <span class="st">&quot;Others&quot;</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="fu">length</span>(ethnicity) <span class="co"># Count all the observations, including the NAs.</span></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="co">#&gt; [1] 11</span></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="fu">length_omit_na</span>(ethnicity)</span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="co">#&gt; [1] 9</span></span></code></pre></div>
 </div>
 <div id="str_left" class="section level2">
 <h2><code>str_left()</code></h2>
 <p>Given a character vector, <code>str_left()</code> returns the left
 side of a string. For examples:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_left</span>(<span class="st">&quot;Nigeria&quot;</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;N&quot;</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str_left</span>(<span class="st">&quot;Nigeria&quot;</span>, <span class="at">n =</span> <span class="dv">3</span>)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Nig&quot;</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">str_left</span>(<span class="fu">c</span>(<span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Female&quot;</span>))</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;F&quot; &quot;M&quot; &quot;M&quot; &quot;F&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="fu">str_left</span>(<span class="st">&quot;Nigeria&quot;</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co">#&gt; [1] &quot;N&quot;</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="fu">str_left</span>(<span class="st">&quot;Nigeria&quot;</span>, <span class="at">n =</span> <span class="dv">3</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Nig&quot;</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="fu">str_left</span>(<span class="fu">c</span>(<span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Female&quot;</span>))</span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="co">#&gt; [1] &quot;F&quot; &quot;M&quot; &quot;M&quot; &quot;F&quot;</span></span></code></pre></div>
 </div>
 <div id="str_right" class="section level2">
 <h2><code>str_right()</code></h2>
 <p>Given a character vector, <code>str_right()</code> returns the right
 side of a string. For examples:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_right</span>(<span class="st">&quot;July 20, 2022&quot;</span>, <span class="dv">4</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2022&quot;</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str_right</span>(<span class="st">&quot;Sale Price&quot;</span>, <span class="at">n =</span> <span class="dv">5</span>)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Price&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="fu">str_right</span>(<span class="st">&quot;July 20, 2022&quot;</span>, <span class="dv">4</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2022&quot;</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="fu">str_right</span>(<span class="st">&quot;Sale Price&quot;</span>, <span class="at">n =</span> <span class="dv">5</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Price&quot;</span></span></code></pre></div>
 </div>
 <div id="str_mid" class="section level2">
 <h2><code>str_mid()</code></h2>
 <p>Like in Microsoft Excel, the <code>str_mid()</code>returns a specific
 number of characters from a text string, starting at the position you
 specify, based on the number of characters you select.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_mid</span>(<span class="st">&quot;Super Eagle&quot;</span>, <span class="dv">7</span>, <span class="dv">5</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Eagle&quot;</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str_mid</span>(<span class="st">&quot;Oyo Ibadan&quot;</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Ibadan&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">str_mid</span>(<span class="st">&quot;Super Eagle&quot;</span>, <span class="dv">7</span>, <span class="dv">5</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Eagle&quot;</span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="fu">str_mid</span>(<span class="st">&quot;Oyo Ibadan&quot;</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Ibadan&quot;</span></span></code></pre></div>
 </div>
 <div id="str_split_extract" class="section level2">
 <h2><code>str_split_extract()</code></h2>
@@ -418,49 +419,47 @@ as follows:</p>
 <p>Given a character string, <code>S</code>, extract the element at a
 given position, <code>k</code>, from the result of splitting
 <code>S</code> by a given pattern, <code>m</code>. For example:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>top_10_richest_nig <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Aliko Dangote&quot;</span>, <span class="st">&quot;Mike Adenuga&quot;</span>, <span class="st">&quot;Femi Otedola&quot;</span>, <span class="st">&quot;Arthur Eze&quot;</span>, <span class="st">&quot;Abdulsamad Rabiu&quot;</span>, <span class="st">&quot;Cletus Ibeto&quot;</span>, <span class="st">&quot;Orji Uzor Kalu&quot;</span>, <span class="st">&quot;ABC Orjiakor&quot;</span>, <span class="st">&quot;Jimoh Ibrahim&quot;</span>, <span class="st">&quot;Tony Elumelu&quot;</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>first_name <span class="ot">&lt;-</span> <span class="fu">str_split_extract</span>(top_10_richest_nig, <span class="st">&quot; &quot;</span>, <span class="dv">1</span>)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>first_name</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;Aliko&quot;      &quot;Mike&quot;       &quot;Femi&quot;       &quot;Arthur&quot;     &quot;Abdulsamad&quot;</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [6] &quot;Cletus&quot;     &quot;Orji&quot;       &quot;ABC&quot;        &quot;Jimoh&quot;      &quot;Tony&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>top_10_richest_nig <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Aliko Dangote&quot;</span>, <span class="st">&quot;Mike Adenuga&quot;</span>, <span class="st">&quot;Femi Otedola&quot;</span>, <span class="st">&quot;Arthur Eze&quot;</span>, <span class="st">&quot;Abdulsamad Rabiu&quot;</span>, <span class="st">&quot;Cletus Ibeto&quot;</span>, <span class="st">&quot;Orji Uzor Kalu&quot;</span>, <span class="st">&quot;ABC Orjiakor&quot;</span>, <span class="st">&quot;Jimoh Ibrahim&quot;</span>, <span class="st">&quot;Tony Elumelu&quot;</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>first_name <span class="ot">&lt;-</span> <span class="fu">str_split_extract</span>(top_10_richest_nig, <span class="st">&quot; &quot;</span>, <span class="dv">1</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>first_name</span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;Aliko&quot;      &quot;Mike&quot;       &quot;Femi&quot;       &quot;Arthur&quot;     &quot;Abdulsamad&quot;</span></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="co">#&gt;  [6] &quot;Cletus&quot;     &quot;Orji&quot;       &quot;ABC&quot;        &quot;Jimoh&quot;      &quot;Tony&quot;</span></span></code></pre></div>
 </div>
 <div id="str_extract_part" class="section level2">
 <h2><code>str_extract_part()</code></h2>
 <p>Extract strings before or after a given pattern. For example:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>first_name <span class="ot">&lt;-</span> <span class="fu">str_extract_part</span>(top_10_richest_nig,  <span class="at">pattern =</span> <span class="st">&quot; &quot;</span>, <span class="at">before =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>first_name</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;Aliko&quot;      &quot;Mike&quot;       &quot;Femi&quot;       &quot;Arthur&quot;     &quot;Abdulsamad&quot;</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [6] &quot;Cletus&quot;     &quot;Orji Uzor&quot;  &quot;ABC&quot;        &quot;Jimoh&quot;      &quot;Tony&quot;</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>revenue <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;$159&quot;</span>, <span class="st">&quot;$587&quot;</span>, <span class="st">&quot;$891&quot;</span>, <span class="st">&quot;$207&quot;</span>, <span class="st">&quot;$793&quot;</span>)</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">str_extract_part</span>(revenue, <span class="at">pattern =</span> <span class="st">&quot;$&quot;</span>, <span class="at">before =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;159&quot; &quot;587&quot; &quot;891&quot; &quot;207&quot; &quot;793&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>first_name <span class="ot">&lt;-</span> <span class="fu">str_extract_part</span>(top_10_richest_nig,  <span class="at">pattern =</span> <span class="st">&quot; &quot;</span>, <span class="at">before =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>first_name</span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;Aliko&quot;      &quot;Mike&quot;       &quot;Femi&quot;       &quot;Arthur&quot;     &quot;Abdulsamad&quot;</span></span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a><span class="co">#&gt;  [6] &quot;Cletus&quot;     &quot;Orji Uzor&quot;  &quot;ABC&quot;        &quot;Jimoh&quot;      &quot;Tony&quot;</span></span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>revenue <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;$159&quot;</span>, <span class="st">&quot;$587&quot;</span>, <span class="st">&quot;$891&quot;</span>, <span class="st">&quot;$207&quot;</span>, <span class="st">&quot;$793&quot;</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a><span class="fu">str_extract_part</span>(revenue, <span class="at">pattern =</span> <span class="st">&quot;$&quot;</span>, <span class="at">before =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a><span class="co">#&gt; [1] &quot;159&quot; &quot;587&quot; &quot;891&quot; &quot;207&quot; &quot;793&quot;</span></span></code></pre></div>
 </div>
 <div id="str_englue" class="section level2">
 <h2><code>str_englue()</code></h2>
 <p>You can dynamically label ggplot2 plots with the glue operators
-<code>[</code> or <code>{{}}</code> using <code>str_englue()</code>. For
-example, any value wrapped in <code>{ }</code> will be inserted into the
-string and you automatically inserts a given variable name using
-<code>{{ }}</code>.</p>
-<p>It is important to note that <code>str_englue()</code> must be used
-inside a function. <code>str_englue(&quot;{{ var }}&quot;)</code> defuses the
-argument <code>var</code> and transforms it to a string using the
-default name operation.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>histogram_plot <span class="ot">&lt;-</span> <span class="cf">function</span>(df, var, binwidth) {</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a> df <span class="sc">|&gt;</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> {{ var }})) <span class="sc">+</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> binwidth) <span class="sc">+</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>   <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">str_englue</span>(<span class="st">&quot;A histogram of {{var}} with binwidth {binwidth}&quot;</span>))</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">|&gt;</span> <span class="fu">histogram_plot</span>(Sepal.Length, <span class="at">binwidth =</span> <span class="fl">0.1</span>)</span></code></pre></div>
+<code>{}</code> or <code>{{}}</code> using <code>str_englue()</code>.
+This function allows for easier string interpolation within curly braces
+for plot labelling in ggplot2. For example, any value wrapped in
+<code>{ }</code> will be inserted into the string and it can also
+understand embracing, <code>{{ }}</code>, which automatically inserts a
+given variable name.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>histogram_plot <span class="ot">&lt;-</span> <span class="cf">function</span>(df, var, binwidth) {</span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a> df <span class="sc">|&gt;</span></span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>   <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> {{ var }})) <span class="sc">+</span></span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>   <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> binwidth) <span class="sc">+</span></span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>   <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">str_englue</span>(<span class="st">&quot;A histogram of {{var}} with binwidth {binwidth}&quot;</span>))</span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a>}</span>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a>iris <span class="sc">|&gt;</span> <span class="fu">histogram_plot</span>(Sepal.Length, <span class="at">binwidth =</span> <span class="fl">0.1</span>)</span></code></pre></div>
 <p><img src="data:image/png;base64,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" /><!-- --></p>
 </div>
 <div id="str_rm_whitespace_df" class="section level2">
@@ -470,38 +469,38 @@ and problems can arise when evaluating such data because of extra
 spaces. Therefore, the function <code>str_rm_whitespace_df()</code>
 eliminates your data frame unnecessary leading, trailing, or other
 whitespaces.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A dataframe with whitespaces</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>richest_in_nigeria</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 10 × 5</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     Rank Name                   `Net worth`         Age `Source of Wealth`      </span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;dbl&gt; &lt;chr&gt;                  &lt;chr&gt;             &lt;dbl&gt; &lt;chr&gt;                   </span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1     1 &quot; Aliko Dangote&quot;       &quot;$14 Billion&quot;        64 &quot;  Cement and Sugar &quot;   </span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2     2 &quot;Mike Adenuga&quot;         &quot;$7.9  Billion &quot;     68 &quot;Telecommunication,    …</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3     3 &quot;Femi   Otedola&quot;       &quot;$5.9   Billion&quot;     59 &quot;Oil  and Gas&quot;          </span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4     4 &quot; Arthur Eze&quot;          &quot;$5 Billion&quot;         73 &quot;Oil and Gas&quot;           </span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5     5 &quot;Abdulsamad     Rabiu&quot; &quot;$3.7 Billion&quot;       61 &quot;Cement   and Sugar&quot;    </span></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6     6 &quot; Cletus Ibeto &quot;       &quot; $3.5 Billion&quot;      69 &quot;Automobile, Real Estat…</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7     7 &quot;Orji Uzor Kalu&quot;       &quot;$3.2 Billion&quot;       61 &quot;Furniture,    Publishi…</span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8     8 &quot;ABC Orjiakor &quot;        &quot;  $1.2 Billion&quot;     63 &quot;Oil and Gas&quot;           </span></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9     9 &quot;  Jimoh Ibrahim&quot;      &quot;$1 Billion &quot;        54 &quot;Insurance, Oil and Gas…</span></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10    10 &quot;Tony   Elumelu&quot;       &quot;$900    Million&quot;    58 &quot;  Banking  &quot;</span></span></code></pre></div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A dataframe with no whitespaces</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str_rm_whitespace_df</span>(richest_in_nigeria)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 10 × 5</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     Rank Name             `Net worth`    Age `Source of Wealth`                 </span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;                              </span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1     1 Aliko Dangote    $14 Billion     64 Cement and Sugar                   </span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2     2 Mike Adenuga     $7.9 Billion    68 Telecommunication, Oil, and Gas    </span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3     3 Femi Otedola     $5.9 Billion    59 Oil and Gas                        </span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4     4 Arthur Eze       $5 Billion      73 Oil and Gas                        </span></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5     5 Abdulsamad Rabiu $3.7 Billion    61 Cement and Sugar                   </span></span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6     6 Cletus Ibeto     $3.5 Billion    69 Automobile, Real Estate            </span></span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7     7 Orji Uzor Kalu   $3.2 Billion    61 Furniture, Publishing              </span></span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8     8 ABC Orjiakor     $1.2 Billion    63 Oil and Gas                        </span></span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9     9 Jimoh Ibrahim    $1 Billion      54 Insurance, Oil and Gas, Real Estate</span></span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10    10 Tony Elumelu     $900 Million    58 Banking</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="co"># A dataframe with whitespaces</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>richest_in_nigeria</span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a><span class="co">#&gt; # A tibble: 10 × 5</span></span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a><span class="co">#&gt;     Rank Name                   `Net worth`         Age `Source of Wealth`      </span></span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a><span class="co">#&gt;    &lt;dbl&gt; &lt;chr&gt;                  &lt;chr&gt;             &lt;dbl&gt; &lt;chr&gt;                   </span></span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a><span class="co">#&gt;  1     1 &quot; Aliko Dangote&quot;       &quot;$14 Billion&quot;        64 &quot;  Cement and Sugar &quot;   </span></span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a><span class="co">#&gt;  2     2 &quot;Mike Adenuga&quot;         &quot;$7.9  Billion &quot;     68 &quot;Telecommunication,    …</span></span>
+<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a><span class="co">#&gt;  3     3 &quot;Femi   Otedola&quot;       &quot;$5.9   Billion&quot;     59 &quot;Oil  and Gas&quot;          </span></span>
+<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a><span class="co">#&gt;  4     4 &quot; Arthur Eze&quot;          &quot;$5 Billion&quot;         73 &quot;Oil and Gas&quot;           </span></span>
+<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a><span class="co">#&gt;  5     5 &quot;Abdulsamad     Rabiu&quot; &quot;$3.7 Billion&quot;       61 &quot;Cement   and Sugar&quot;    </span></span>
+<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a><span class="co">#&gt;  6     6 &quot; Cletus Ibeto &quot;       &quot; $3.5 Billion&quot;      69 &quot;Automobile, Real Estat…</span></span>
+<span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a><span class="co">#&gt;  7     7 &quot;Orji Uzor Kalu&quot;       &quot;$3.2 Billion&quot;       61 &quot;Furniture,    Publishi…</span></span>
+<span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a><span class="co">#&gt;  8     8 &quot;ABC Orjiakor &quot;        &quot;  $1.2 Billion&quot;     63 &quot;Oil and Gas&quot;           </span></span>
+<span id="cb10-15"><a href="#cb10-15" tabindex="-1"></a><span class="co">#&gt;  9     9 &quot;  Jimoh Ibrahim&quot;      &quot;$1 Billion &quot;        54 &quot;Insurance, Oil and Gas…</span></span>
+<span id="cb10-16"><a href="#cb10-16" tabindex="-1"></a><span class="co">#&gt; 10    10 &quot;Tony   Elumelu&quot;       &quot;$900    Million&quot;    58 &quot;  Banking  &quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="co"># A dataframe with no whitespaces</span></span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="fu">str_rm_whitespace_df</span>(richest_in_nigeria)</span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a><span class="co">#&gt; # A tibble: 10 × 5</span></span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a><span class="co">#&gt;     Rank Name             `Net worth`    Age `Source of Wealth`                 </span></span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a><span class="co">#&gt;    &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;                              </span></span>
+<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a><span class="co">#&gt;  1     1 Aliko Dangote    $14 Billion     64 Cement and Sugar                   </span></span>
+<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a><span class="co">#&gt;  2     2 Mike Adenuga     $7.9 Billion    68 Telecommunication, Oil, and Gas    </span></span>
+<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a><span class="co">#&gt;  3     3 Femi Otedola     $5.9 Billion    59 Oil and Gas                        </span></span>
+<span id="cb11-10"><a href="#cb11-10" tabindex="-1"></a><span class="co">#&gt;  4     4 Arthur Eze       $5 Billion      73 Oil and Gas                        </span></span>
+<span id="cb11-11"><a href="#cb11-11" tabindex="-1"></a><span class="co">#&gt;  5     5 Abdulsamad Rabiu $3.7 Billion    61 Cement and Sugar                   </span></span>
+<span id="cb11-12"><a href="#cb11-12" tabindex="-1"></a><span class="co">#&gt;  6     6 Cletus Ibeto     $3.5 Billion    69 Automobile, Real Estate            </span></span>
+<span id="cb11-13"><a href="#cb11-13" tabindex="-1"></a><span class="co">#&gt;  7     7 Orji Uzor Kalu   $3.2 Billion    61 Furniture, Publishing              </span></span>
+<span id="cb11-14"><a href="#cb11-14" tabindex="-1"></a><span class="co">#&gt;  8     8 ABC Orjiakor     $1.2 Billion    63 Oil and Gas                        </span></span>
+<span id="cb11-15"><a href="#cb11-15" tabindex="-1"></a><span class="co">#&gt;  9     9 Jimoh Ibrahim    $1 Billion      54 Insurance, Oil and Gas, Real Estate</span></span>
+<span id="cb11-16"><a href="#cb11-16" tabindex="-1"></a><span class="co">#&gt; 10    10 Tony Elumelu     $900 Million    58 Banking</span></span></code></pre></div>
 </div>
 
 
